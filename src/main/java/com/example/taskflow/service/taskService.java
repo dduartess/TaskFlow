@@ -18,13 +18,6 @@ public class TaskService {
     private List<Task> tasks = new ArrayList<>();
 
     public Task createTask(String title, String description) {
-        if (!validation.taskTitleIsValid(title)) {
-            return null;
-        }
-        if (!validation.taskDescriptionIsValid(description)) {
-            return null;
-        }
-
         Task newTask = new Task(title, description);
         tasks.add(newTask);
         return newTask;

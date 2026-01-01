@@ -18,9 +18,16 @@ public class Task {
     private boolean completed = false;
 
     public Task(String title, String description) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title is required");
+        }
+
+        if (description == null || description.isBlank()) {
+            throw new IllegalArgumentException("Description is required");
+        }
+
         this.title = title;
         this.description = description;
-        this.completed = false;
     }
 
     public Task() {
