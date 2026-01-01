@@ -1,6 +1,6 @@
 package com.example.taskflow.service;
 
-public class taskValidation {
+public class TaskValidation {
 
 public boolean taskTitleIsValid(String title){
     if (title == null || title.trim().isEmpty()) {

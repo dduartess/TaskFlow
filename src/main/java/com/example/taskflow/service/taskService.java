@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import com.example.taskflow.model.Task;
 
 @Service
-public class taskService {
+public class TaskService {
+
+    Task newTask = new Task();
+
     @Autowired
-    Task task;
-    @Autowired
-    taskValidation validation;
+    TaskValidation validation;
     private List<Task> tasks = new ArrayList<>();
 
     public Task createTask(String title, String description) {
