@@ -14,7 +14,6 @@ public class TaskService {
     Task newTask = new Task();
 
     @Autowired
-    TaskValidation validation;
     private List<Task> tasks = new ArrayList<>();
 
     public Task createTask(String title, String description) {
