@@ -24,7 +24,7 @@ public class taskService {
             return null;
         }
 
-        Task newTask = new Task(title, description, false);
+        Task newTask = new Task(title, description);
         tasks.add(newTask);
         return newTask;
     }

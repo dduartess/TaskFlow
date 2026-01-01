@@ -1,9 +1,13 @@
 package com.example.taskflow.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "tasks")
 public class Task {
 
     @Id
@@ -11,12 +15,12 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private boolean completed;
+    private boolean completed = false;
 
-    public Task(String title, String description, boolean completed) {
+    public Task(String title, String description) {
         this.title = title;
         this.description = description;
-        this.completed = completed;
+        this.completed = false;
     }
 
     public Task() {
