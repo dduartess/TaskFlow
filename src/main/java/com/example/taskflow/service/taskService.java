@@ -32,5 +32,13 @@ public class TaskService {
     public void deleteTask(Long id) {
         tasks.removeIf(task -> task.getId().equals(id));
     }
+
+    public void updateTask(Long id, String title, String description) {
+        Task task = getTaskById(id);
+        if (task != null) {
+            task.setTitle(title);
+            task.setDescription(description);
+        }
+    }
     
 }
