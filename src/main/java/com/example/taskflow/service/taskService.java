@@ -21,4 +21,21 @@ public class TaskService {
         tasks.add(newTask);
         return newTask;
     }
+
+    public List<Task> getAllTasks() {
+        return tasks;
+    }
+
+    public Task getTaskById(Long id) {
+        return tasks.stream()
+                .filter(task -> task.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void deleteTask(Long id) {
+        tasks.removeIf(task -> task.getId().equals(id));
+    }
+
+
 }
