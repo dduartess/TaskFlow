@@ -3,7 +3,7 @@ package com.example.taskflow.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.example.taskflow.model.Task;
@@ -11,9 +11,6 @@ import com.example.taskflow.model.Task;
 @Service
 public class TaskService {
 
-    Task newTask = new Task();
-
-    @Autowired
     private List<Task> tasks = new ArrayList<>();
 
     public Task createTask(String title, String description) {
@@ -36,6 +33,5 @@ public class TaskService {
     public void deleteTask(Long id) {
         tasks.removeIf(task -> task.getId().equals(id));
     }
-
-
+    
 }
