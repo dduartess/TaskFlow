@@ -22,7 +22,8 @@ O projeto foi criado com o objetivo de **estudo e consolidação de fundamentos 
 - Arquitetura em camadas (Controller, Service, Repository)
 - API RESTful
 - Spring Data JPA
-- Banco de dados em memória (H2)
+- Banco de dados relacional (PostgreSQL)
+- Containerização (Docker)
 - Enum para status da tarefa
 - Separação entre regras de negócio e camada web
 - Boas práticas de atualização de entidades
@@ -36,7 +37,8 @@ O projeto foi criado com o objetivo de **estudo e consolidação de fundamentos 
 - Spring Boot
 - Spring Web
 - Spring Data JPA
-- H2 Database
+- PostgreSQL
+- Docker & Docker Compose
 - Maven
 - Hibernate
 
@@ -114,27 +116,29 @@ DELETE /tasks/{id}
 
 ## 🧪 Banco de dados
 
-O projeto utiliza **H2 em memória**, ideal para desenvolvimento e testes.
+O projeto utiliza **PostgreSQL** como banco de dados principal, executado via Docker.
 
-### Acesso ao console H2:
-- URL: `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:mem:testdb`
-- Usuário: `sa`
-- Senha: *(em branco)*
+### Dados de conexão (Padrão Docker):
+- **URL:** `jdbc:postgresql://localhost:5432/taskflow`
+- **Usuário:** `postgres`
+- **Senha:** `postgres` (ou conforme definido no `docker-compose.yml`)
 
 ---
 
 ## ▶️ Como executar o projeto
 
 ### Pré-requisitos
-- Java 17 ou superior
-- Maven
+- Docker e Docker Compose
+- Git
 
-### Passos
+### Passos com Docker
+
+A maneira mais simples de rodar a aplicação é utilizando o Docker Compose, que sobe a API e o banco de dados automaticamente.
+
 ```bash
 git clone https://github.com/dduartess/TaskFlow.git
 cd TaskFlow
-mvn spring-boot:run
+docker-compose up --build
 ```
 
 A aplicação estará disponível em:
