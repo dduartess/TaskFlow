@@ -36,7 +36,7 @@ public class TaskController {
         Task task = service.findById(id);
         return ResponseEntity.ok().body(task);
     }
-    
+
     @PostMapping
     public ResponseEntity<Task> insert(@RequestBody Task task){
         task = service.save(task);
@@ -46,7 +46,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(Long id){
+    public ResponseEntity<Void> deleteById(@PathVariable Long id){
         service.deleteById(id);
         return ResponseEntity.noContent().build();
     }
