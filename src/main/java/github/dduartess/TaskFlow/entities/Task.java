@@ -5,6 +5,7 @@ import java.io.Serializable;
 import github.dduartess.TaskFlow.entities.enums.TaskStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +21,10 @@ public class Task implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String title;
     private String description;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TaskStatus status;
 
@@ -34,7 +35,7 @@ public class Task implements Serializable{
         this.id = id;
         this.title = title;
         this.description = description;
-        this.status = status;
+        this.status = TaskStatus.PENDING;
     }
 
     public Long getId() {
