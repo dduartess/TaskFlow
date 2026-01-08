@@ -39,6 +39,5 @@ public class TaskService {
     private void updateData(Task existingTask, Task task) {
         existingTask.setTitle(task.getTitle());
         existingTask.setDescription(task.getDescription());
-        existingTask.setStatus(task.getStatus());
     }
 }
