@@ -154,8 +154,7 @@ http://localhost:8080
 - Validação com Bean Validation
 - Tratamento global de exceções (`@ControllerAdvice`)
 - Testes unitários com JUnit e Mockito
-- Documentação com Swagger / OpenAPI
-- Persistência em banco relacional (PostgreSQL ou MySQL)
+
 
 ---
 
