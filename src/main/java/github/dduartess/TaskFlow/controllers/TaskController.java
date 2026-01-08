@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import github.dduartess.TaskFlow.entities.Task;
+import github.dduartess.TaskFlow.entities.enums.TaskStatus;
 import github.dduartess.TaskFlow.services.TaskService;
 
 @RestController
@@ -56,4 +57,12 @@ public class TaskController {
         task = service.update(id, task);
         return ResponseEntity.ok().body(task);
     }
+
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<Task> complete(@PathVariable Long id){
+        Task task = service.findById(id);
+        task.setStatus(TaskStatus.COMPLETED);
+        task = service.save(task);
+        return ResponseEntity.ok().body(task);
+    }   
 }
